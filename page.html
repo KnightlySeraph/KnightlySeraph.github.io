@@ -1,0 +1,40 @@
+<html>
+    <header>
+        <script type = "text/javascript" src = "roller.js"></script>
+        <script type = "text/javascript" src = "turnOrder.js"></script>
+    </header>
+    <body>
+        <h1>Dice Roller</h1>
+        <input type = "text" id = "amtd4" width = "10" value = "1" size = "1">
+        <button onclick = "roll(1, 4)">Roll d4</button>
+        <input type = "text" id = "resultd4" readonly>
+        <br><br>
+        <input type = "text" id = "amtd6" value = "1" size = "1">
+        <button onclick = "roll(1, 6)">Roll d6</button>
+        <input type = "text" id = resultd6 readonly>
+        <br><br>
+        <button onclick = "stats()" onmouseover="statInfo()" onmouseout="statLeave()">Roll Stats</button>
+        <input type = "text" id = "statResult" value = "stats here" readonly>
+        <br><br>
+        <p1 id = "statInfo"></p1>
+        <br>
+        <h2>Turn Tracker</h2>
+        <br>
+        <input type = "text" value = "Name" id = "name">
+        <input type = "text" value = "Hit Points" id = "hp">
+        <input type = "text" value = "Armor Class" id = "ac">
+        <button onclick = "addCreature()">Add</button>
+        <button onclick = "clearEncounter()">Clear</button>
+        <br><br>
+        <p1 id = "cinfo1"></p1>
+        <table id = "encounterDisplay" style = "width:100%">
+            <tr>
+                <th>Name</th>
+                <th>Hit Points</th>
+                <th>Armor Class</th>
+            </tr>
+        </table>
+
+    </body>
+</html>
+
