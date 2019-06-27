@@ -33,15 +33,18 @@
         <h2>Turn Tracker</h2>
         <br>
         <input type = "text" value = "Name" id = "name">
+        <input type = "text" value = "Initiative" id = "ini">
         <input type = "text" value = "Hit Points" id = "hp">
         <input type = "text" value = "Armor Class" id = "ac">
         <button onclick = "addCreature()">Add</button>
         <button onclick = "clearEncounter()">Clear</button>
+        <button onclick = "sort()">Sort</button>
         <br><br>
         <p1 id = "cinfo1"></p1>
         <table id = "encounterDisplay" style = "width:100%">
             <tr>
                 <th>Name</th>
+                <th>Initiative</th>
                 <th>Hit Points</th>
                 <th>Armor Class</th>
             </tr>
