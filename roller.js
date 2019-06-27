@@ -26,11 +26,11 @@ function roll(min, max) {
     } else if (max == 6) {
         document.getElementById("resultd6").value = result;
     } else if (max == 8) {
-        document.getElementById("resultd4").value = result;
+        document.getElementById("resultd8").value = result;
     } else if (max == 10) {
-        document.getElementById("resultd4").value = result;
+        document.getElementById("resultd10").value = result;
     } else if (max == 12) {
-        document.getElementById("resultd4").value = result;
+        document.getElementById("resultd12").value = result;
     }
    
 }
