@@ -23,6 +23,9 @@ function addCreature() {
         }
         newCell.appendChild(newText)
     }
+
+    // Run a sort after every added creature
+    sort()
     
 
 }
