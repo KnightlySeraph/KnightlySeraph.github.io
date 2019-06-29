@@ -60,3 +60,7 @@ input[type=text]:focus {
     background-color: rgb(227, 238, 163);
     border: 2px solid #555;
 }
+
+td {
+    text-align: center;
+}
