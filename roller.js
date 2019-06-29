@@ -15,6 +15,10 @@ function roll(min, max) {
         loops = document.getElementById("amtd10").value
     } else if (max == 12) {
         loops = document.getElementById("amtd12").value
+    } else if (max == 20) {
+        loops = document.getElementById("amtd20").value
+    } else if (max == 100) {
+        loops = document.getElementById("amtd100").value
     }
     for (i = 0; i < loops; i++) {
         die = Math.floor(Math.random() * ((max + 1) - min)) + min
@@ -32,6 +36,10 @@ function roll(min, max) {
         document.getElementById("resultd10").value = r;
     } else if (max == 12) {
         document.getElementById("resultd12").value = r;
+    } else if (max == 20) {
+        document.getElementById("resultd20").value = r;
+    } else if (max == 100) {
+        document.getElementById("resultd100").value = r;
     }
     
 }

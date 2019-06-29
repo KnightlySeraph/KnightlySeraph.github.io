@@ -27,8 +27,20 @@
         <button onclick = "roll(1, 12)">Roll d12</button>
         <input type = "text" id = "resultd12" readonly>
         <br><br>
+        <input type = "text" id = "amtd20" value = "1" size = "1">
+        <button onclick = "roll(1, 20)">Roll d20</button>
+        <input type = "text" id = "resultd20" readonly>
+        <br><br>
+        <input type = "text" id = "amtd100" value = "1" size = "1">
+        <button onclick = "roll(1, 100)">Roll d100</button>
+        <input type = "text" id = "resultd100" readonly>
+        <br><br>
         <button onclick = "stats()" onmouseover="statInfo()" onmouseout="statLeave()">Roll Stats</button>
         <input type = "text" id = "statResult" value = "stats here" readonly>
+        <select>
+            <option value = "Option 1">Option 1</option>
+            <option value = Option 2">Option 2</option>
+        </select>
         <br><br>
         <p1 id = "statInfo"></p1>
         <br>
