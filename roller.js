@@ -1,6 +1,6 @@
 
 function roll(min, max) {
-    num = Math.random()
+    
     
     
     r = 0
@@ -17,7 +17,8 @@ function roll(min, max) {
         loops = document.getElementById("amtd12").value
     }
     for (i = 0; i < loops; i++) {
-        die = Math.floor(num * ((max + 1) - min)) + min
+        die = Math.floor(Math.random() * ((max + 1) - min)) + min
+        console.log(die)
         r += die
     }
 
