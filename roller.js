@@ -1,6 +1,6 @@
 
 function roll(min, max) {
-    
+    list = []
     
     
     r = 0
@@ -22,12 +22,13 @@ function roll(min, max) {
     }
     for (i = 0; i < loops; i++) {
         die = Math.floor(Math.random() * ((max + 1) - min)) + min
-        console.log(die)
+        list.push(die)
         r += die
     }
 
     if (max == 4) {
         document.getElementById("resultd4").value = r;
+        document.getElementById("histd4").value = list;
     } else if (max == 6) {
         document.getElementById("resultd6").value = r;
     } else if (max == 8) {
