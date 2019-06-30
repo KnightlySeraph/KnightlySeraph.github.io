@@ -39,13 +39,13 @@ function sort() {
         switching = false
         rows = eTable.rows
 
-        for (i = 1; i < rows.length-1; i++) {
+        for (i = 0; i < rows.length-1; i++) {
             shouldSwitch = false
 
             x = rows[i].getElementsByTagName("TD")[1]
             y = rows[i+1].getElementsByTagName("TD")[1]
 
-            if (Number(x.innerHTML) > Number(y.innerHTML)) {
+            if (Number(x.innerHTML) < Number(y.innerHTML)) {
                 shouldSwitch = true
                 break
             }
