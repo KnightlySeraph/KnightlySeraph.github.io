@@ -63,3 +63,9 @@ function sort() {
 function clearEncounter() {
     document.getElementById("encounterDisplay").innerHTML = ""
 }
+
+function enterCre() {
+    if (event.key === "Enter") {
+        addCreature()
+    }
+}
