@@ -7,6 +7,10 @@ function addCreature() {
     hp = document.getElementById("hp").value
     ac = document.getElementById("ac").value
 
+    inputBox = document.createElement("input")
+    inputBox.setAttribute("type", "text")
+
+
     //document.getElementById("cinfo1").innerHTML = name + ", Hit Points - " + hp + ", Armor Class - " + ac
     eTable = document.getElementById("encounterDisplay")
     newRow = eTable.insertRow(-1)
@@ -21,7 +25,14 @@ function addCreature() {
         } else {
             newText = document.createTextNode(ac)
         }
-        newCell.appendChild(newText)
+        if (i != 2) {
+            newCell.appendChild(newText)
+        } else {
+            inputBox.setAttribute("value", hp)
+            newCell.appendChild(inputBox)
+
+        }
+        
     }
 
     // Run a sort after every added creature
