@@ -9,6 +9,7 @@ function addCreature() {
 
     inputBox = document.createElement("input")
     inputBox.setAttribute("type", "text")
+    inputBox.setAttribute("onkeydown", "doOperation(this)")
 
 
     //document.getElementById("cinfo1").innerHTML = name + ", Hit Points - " + hp + ", Armor Class - " + ac
@@ -78,5 +79,73 @@ function clearEncounter() {
 function enterCre() {
     if (event.key === "Enter") {
         addCreature()
+    }
+}
+
+function doOperation(domObj) {
+    if (event.key === "Enter") {
+        input = domObj.value
+
+        iLength = input.length
+        currentIndex = 0;
+
+        cnum1 = "";
+        cnum2 = "";
+
+        operation = "none"
+
+        // Loop through, collect first number
+        for (i = 0; i < iLength; i++) {
+           if (input[i] === "-") {
+               // Subtraction Operation Detected
+               operation = 0
+               currentIndex = i + 1
+               break
+           } else if (input[i] === "+") {
+                // Addition Opeation Detected
+                operation = 1
+                currentIndex = i + 1
+                break
+           } else if (input[i] === "/") {
+                // Division Operation Detected
+                operation = 2
+                currentIndex = i + 1
+                break
+           } else if (input[i] === "*") {
+                // Multiplication operation detected
+                operation = 3
+                currentIndex = i + 1
+                break
+           }
+           cnum1 = cnum1 + input[i]
+        }
+
+        // Loop through collect second number
+        for (z = currentIndex; z < iLength; z++ ) {
+            cnum2 = cnum2 + input[z]
+        }
+
+        if (operation == 0) {
+            // Perform subtraction
+            num1 = parseInt(cnum1)
+            num2 = parseInt(cnum2)
+            final = num1 - num2
+            domObj.value = final
+        } else if (operation == 1) {
+            num1 = parseInt(cnum1)
+            num2 = parseInt(cnum2)
+            final = num1 + num2
+            domObj.value = final
+        } else if (operation == 2) {
+            num1 = parseInt(cnum1)
+            num2 = parseInt(cnum2)
+            final = num1 / num2
+            domObj.value = final
+        } else if (operation == 3) {
+            num1 = parseInt(cnum1)
+            num2 = parseInt(cnum2)
+            final = num1 * num2
+            domObj.value = final
+        }
     }
 }
