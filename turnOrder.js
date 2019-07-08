@@ -149,3 +149,92 @@ function doOperation(domObj) {
         }
     }
 }
+
+// This if for the calculator feature
+function appendOutputCell(domObj) {
+    // This will take input and write it to the display
+    outputField = document.getElementById("calcOutput")
+    input = domObj.innerHTML
+
+
+    currentInfo = outputField.value
+
+    currentInfo = currentInfo + input
+    
+    // Set the output field
+    document.getElementById("calcOutput").value = currentInfo
+}
+
+function clearCalcOutput () {
+    document.getElementById("calcOutput").value = ""
+}
+
+// Primarily a copy of doOperation but tailored more for the calculator function
+function doCalculatorOperation() {
+    input = document.getElementById("calcOutput").value
+
+    iLength = input.length
+    currentIndex = 0;
+    console.log(input)
+
+    cnum1 = "";
+    cnum2 = "";
+
+    operation = "none"
+
+    // Loop through, collect first number
+    for (i = 0; i < iLength; i++) {
+        if (input[i] === "-") {
+            // Subtraction Operation Detected
+            operation = 0
+            currentIndex = i + 1
+            break
+        } else if (input[i] === "+") {
+            // Addition Opeation Detected
+            operation = 1
+            currentIndex = i + 1
+            break
+        } else if (input[i] === "/") {
+            // Division Operation Detected
+            operation = 2
+            currentIndex = i + 1
+            break
+        } else if (input[i] === "*") {
+            // Multiplication operation detected
+            operation = 3
+            currentIndex = i + 1
+            break
+        }
+        cnum1 = cnum1 + input[i]
+    }
+
+    // Loop through collect second number
+    for (z = currentIndex; z < iLength; z++ ) {
+        cnum2 = cnum2 + input[z]
+    }
+
+    if (operation == 0) {
+        // Perform subtraction
+        num1 = parseInt(cnum1)
+        num2 = parseInt(cnum2)
+        final = num1 - num2
+        document.getElementById("calcOutput").value = final
+    } else if (operation == 1) {
+        num1 = parseInt(cnum1)
+        num2 = parseInt(cnum2)
+        final = num1 + num2
+        document.getElementById("calcOutput").value = final
+    } else if (operation == 2) {
+        num1 = parseInt(cnum1)
+        num2 = parseInt(cnum2)
+        final = num1 / num2
+        document.getElementById("calcOutput").value = final
+    } else if (operation == 3) {
+        num1 = parseInt(cnum1)
+        num2 = parseInt(cnum2)
+        final = num1 * num2
+        document.getElementById("calcOutput").value = final
+    } else {
+        alert("Incorrect Operation")
+    }
+}
