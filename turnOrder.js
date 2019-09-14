@@ -6,13 +6,19 @@ function addCreature() {
     ini = document.getElementById("ini").value
     hp = document.getElementById("hp").value
     ac = document.getElementById("ac").value
+    notes = document.getElementById("ac").value
 
     inputBox = document.createElement("input")
     inputBox.setAttribute("type", "text")
     inputBox.setAttribute("onkeydown", "doOperation(this)")
 
+    noteBox = document.createElement("textarea")
 
-    //document.getElementById("cinfo1").innerHTML = name + ", Hit Points - " + hp + ", Armor Class - " + ac
+    // initBox = document.createElement("input")
+    // initBox = document.setAttribute("type", "text")
+    // inputBox = document.setAttribute("onkeydown", "sort()")
+
+
     eTable = document.getElementById("encounterDisplay")
     newRow = eTable.insertRow(-1)
     for (i = 0; i < 4; i++) {
@@ -26,12 +32,14 @@ function addCreature() {
         } else {
             newText = document.createTextNode(ac)
         }
-        if (i != 2) {
+        if (i === 0 || i === 1) {
             newCell.appendChild(newText)
-        } else {
+        } else if (i === 2) {
             inputBox.setAttribute("value", hp)
             newCell.appendChild(inputBox)
 
+        } else if (i === 3) {
+            newCell.appendChild(noteBox)
         }
         
     }
