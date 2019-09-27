@@ -14,8 +14,9 @@ function addCreature() {
 
     noteBox = document.createElement("textarea")
 
-    // initBox = document.createElement("input")
-    // initBox = document.setAttribute("type", "text")
+    initCell = document.createElement("input")
+    initCell.setAttribute("type", "text")
+    initCell.setAttribute("onkeydown", "sort()")
     // inputBox = document.setAttribute("onkeydown", "sort()")
 
 
@@ -32,8 +33,11 @@ function addCreature() {
         } else {
             newText = document.createTextNode(ac)
         }
-        if (i === 0 || i === 1) {
+        if (i === 0) {
             newCell.appendChild(newText)
+        } else if (i === 1) {
+            initCell.setAttribute("value", ini)
+            newCell.appendChild(initCell)
         } else if (i === 2) {
             inputBox.setAttribute("value", hp)
             newCell.appendChild(inputBox)
@@ -65,7 +69,7 @@ function sort() {
             x = rows[i].getElementsByTagName("TD")[1]
             y = rows[i+1].getElementsByTagName("TD")[1]
 
-            if (Number(x.innerHTML) < Number(y.innerHTML)) {
+            if (Number(x.value) < Number(y.value)) {
                 shouldSwitch = true
                 break
             }
@@ -76,6 +80,8 @@ function sort() {
             switching = true
         }
     }
+
+    console.log("sort called")
     
 
 }
@@ -245,4 +251,9 @@ function doCalculatorOperation() {
     } else {
         alert("Incorrect Operation")
     }
+}
+
+function deleteLast () {
+    table = document.getElementById("encounterDisplay")
+    table.deleteRow(-1)
 }
