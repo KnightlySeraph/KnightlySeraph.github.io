@@ -5,7 +5,7 @@
         <script type = "text/javascript" src = "statRoller.js"></script>
         <link href = "main.css" type = "text/css" rel="stylesheet"/>
     </header>
-    <body>
+    <body onload = "loadListener()">
         <h1>Tabletop RPG Assistant</h1>
         <table style = "width:100%">
             <tr>
@@ -92,7 +92,7 @@
         <input type = "text" value = "Notes" id = "ac" onkeydown = "enterCre()">
         <button onclick = "addCreature()">Add</button>
         <button onclick = "clearEncounter()">Clear</button>
-        <button onclick = "deleteLast()">Undo</button>
+        <button onclick = "deleteLast()">Delete</button>
         <br><br>
         <p1 id = "cinfo1"></p1>
         <table style="width:100%">

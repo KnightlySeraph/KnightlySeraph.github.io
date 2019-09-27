@@ -33,11 +33,8 @@ function addCreature() {
         } else {
             newText = document.createTextNode(ac)
         }
-        if (i === 0) {
+        if (i === 0 || i === 1) {
             newCell.appendChild(newText)
-        } else if (i === 1) {
-            initCell.setAttribute("value", ini)
-            newCell.appendChild(initCell)
         } else if (i === 2) {
             inputBox.setAttribute("value", hp)
             newCell.appendChild(inputBox)
@@ -69,7 +66,7 @@ function sort() {
             x = rows[i].getElementsByTagName("TD")[1]
             y = rows[i+1].getElementsByTagName("TD")[1]
 
-            if (Number(x.value) < Number(y.value)) {
+            if (Number(x.innerHTML) < Number(y.innerHTML)) {
                 shouldSwitch = true
                 break
             }
@@ -253,7 +250,55 @@ function doCalculatorOperation() {
     }
 }
 
+var tIndex = 0
 function deleteLast () {
     table = document.getElementById("encounterDisplay")
-    table.deleteRow(-1)
+    table.deleteRow(tIndex)
+}
+
+function getTIndex () {
+    table = document.getElementsByTagName("tr")
+    alert("Row index is " + table.rowIndex)
+}
+
+function keyTest () {
+    if (event.key == "Enter") {
+        alert ("down key pressed")
+    }
+}
+
+
+function loadListener () {
+    document.addEventListener("keydown", function(event) {
+        // Get reference to the table
+        table = document.getElementById("encounterDisplay")
+        r = table.rows.length // Get the number of rows
+        if (event.key === "ArrowUp") {
+            tIndex--;
+        } else if (event.key == "ArrowDown") {
+            tIndex++;
+        }
+        // Make sure tIndex stays within the bounds of the table
+        if (tIndex > r) {
+            tIndex = r
+        } else if (tIndex < 0) {
+            tIndex = 0
+        }
+
+        // Highlight the focused row
+        
+        for (i = 0; i < r; i++) {
+            if (i == tIndex) {
+                table.rows[tIndex].style.backgroundColor = "yellow"
+            }
+            else {
+                table.rows[i].style.backgroundColor = ""
+            }
+        }
+
+        // Delete the selected row
+        if (event.key == "Delete") {
+            table.deleteRow(tIndex)
+        }
+    })
 }
