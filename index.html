@@ -7,6 +7,27 @@
     </header>
     <body onload = "loadListener()">
         <h1>Tabletop RPG Assistant</h1>
+        <h1>Turn Tracker</h1>
+        <br>
+        <input type = "text" value = "Name" id = "name" onkeydown = "enterCre()">
+        <input type = "text" value = "Initiative" id = "ini" onkeydown = "enterCre()">
+        <input type = "text" value = "Hit Points" id = "hp" onkeydown = "enterCre()">
+        <input type = "text" value = "Notes" id = "ac" onkeydown = "enterCre()">
+        <button onclick = "addCreature()">Add</button>
+        <button onclick = "clearEncounter()">Clear</button>
+        <button onclick = "deleteLast()">Delete</button>
+        <br><br>
+        <p1 id = "cinfo1"></p1>
+        <table style="width:100%">
+            <tr>
+                <th>Name</th>
+                <th>Initiative</th>
+                <th>Hit Points</th>
+                <th>Notes</th>
+            </tr>
+        </table>
+        <table id = "encounterDisplay" style = "width:100%" border = "1">
+        </table>
         <table style = "width:100%">
             <tr>
                 <td class = "topContent">
@@ -84,7 +105,7 @@
             </tr>
         </table>
         <br>
-        <h1>Turn Tracker</h1>
+        <!-- <h1>Turn Tracker</h1>
         <br>
         <input type = "text" value = "Name" id = "name" onkeydown = "enterCre()">
         <input type = "text" value = "Initiative" id = "ini" onkeydown = "enterCre()">
@@ -104,7 +125,7 @@
             </tr>
         </table>
         <table id = "encounterDisplay" style = "width:100%" border = "1">
-        </table>
+        </table> -->
 
     </body>
 </html>
