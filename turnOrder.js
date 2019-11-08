@@ -285,14 +285,21 @@ function loadListener () {
             tIndex = 0
         }
 
+        // Disable scrolling
+        if([32, 37, 38, 39, 40].indexOf(event.keyCode) > -1) {
+            event.preventDefault();
+        } 
+
         // Highlight the focused row
         
         for (i = 0; i < r; i++) {
             if (i == tIndex) {
-                table.rows[tIndex].style.backgroundColor = "yellow"
+                table.rows[tIndex].style.backgroundColor = "#97003a";
+                table.rows[tIndex].style.color = "#ffe600";
             }
             else {
                 table.rows[i].style.backgroundColor = ""
+                table.rows[i].style.color = "black";
             }
         }
 
@@ -302,3 +309,7 @@ function loadListener () {
         }
     })
 }
+
+window.onbeforeunload = function() {
+    return "Are you sure you want to leave";
+};
